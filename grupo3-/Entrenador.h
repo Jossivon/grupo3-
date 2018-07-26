@@ -1,38 +1,55 @@
+#include "Federacion.h"
+#include "Integrante.h"
+
 using namespace std;
+
 class Entrenador:public Integrante{
+	
 	Federacion federacion;
 	public:
-		Entrenador(string id,string nombres,string apellidos,int edad,Federacion federacion):Integrante(id,nombres,apellidos,edad){
+		Entrenador(){}
+		Entrenador(int id,string nombres,string apellidos,int edad,Federacion federacion):Integrante(id,nombres,apellidos,edad){
 			this->federacion=federacion;
 		}
 	Federacion getFederacion(){return federacion;}
-	void setFederacion(){this->federacion=federacion;}
-	void ingresar();
+	
+	void setFederacion(Federacion federacion){this->federacion=federacion;}
+	void leer();
 	void imprimir();
 };
+
 void Entrenador::leer(){
-	string ide,nom,ape;
-	int ed;
-	cout<<"/n**Ingrese datos Entrenador**\n";
-	cout<<"Id :";cin>>ide;
-	cout<<"Nombres :";cin>>nom;
-	cout<<"Apellidos: ";cin>>ape;
-	cout<<"Edad: ";cin>>edad;
-	this->setId(ide);
+	//string ide,nom,ape;
+	//int ed;
+	string nomf;
+	int idef;
+	cout<<"**Ingrese datos Entrenador**\n";
+	cout<<"\nId :";cin>>id;
+	cout<<"\nNombres :";cin>>nombre;
+	cout<<"\nApellidos: ";cin>>apellido;
+	cout<<"\nEdad: ";cin>>edad;
+	cout<<"\n Id de la federacion:";cin>>idef;
+	cout<<"\n Nombre de la federacion :";cin>>nomf;
+	/*this->setId(ide);
 	this->setNombres(nom);
 	this->setApellidos(ape);
-	this->setEdad(edad);
-	string idef,nomf;
+	this->setEdad(edad);*/
+	
 	Federacion objfed(idef,nomf);
-	objfed.leer();
 	federacion=objfed;
 }
 void Entrenador::imprimir(){
-	cout<<"/n**Datos Entrenador**\n";
-	cout<<"Id :"<<this->getId()<<endl;
+	cout<<"\n**Datos Entrenador**";
+	cout<<"\nId :"<<id;
+	cout<<"\nNombres :"<<nombre;
+	cout<<"\nApellidos: "<<apellido;
+	cout<<"\nEdad: "<<edad;
+	cout<<"\nId de la federacion:"<<federacion.getId();
+	cout<<"\nNombre de la federacion :"<<federacion.getNombre();
+	/*cout<<"Id :"<<this->getId()<<endl;
 	cout<<"Nombres :"<<this->getNombres();
 	cout<<"Apellidos: "<<this->getApellido();
 	cout<<"Edad: "<<this->getEdad();
-	cout<<"Federacion: "<<endl;
-	federacion.imprimir();
+	cout<<"Federacion: "<<endl;*/
+	//federacion.imprimir();
 }
